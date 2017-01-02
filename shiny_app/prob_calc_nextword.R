@@ -15,7 +15,7 @@ uniProb_fn <- function(x, bigram = NULL, notFoundResults = 5){
 
 biProb_fn <- function(x, notFoundResults = 5){
   nxt_word_df <- ngramlist[[3]][grep(paste("^", x, " ", sep = ""), ngramlist[[3]]$ngram), c("ngram","Freq")]
-  # if no trigrams are found, look for unigrams (backoff)
+  # if no bigrams are found, look for unigrams (backoff)
   if (identical(nxt_word_df$Freq, integer(0))){
     
     x <- word(x, -1)
